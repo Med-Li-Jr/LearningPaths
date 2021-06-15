@@ -69,44 +69,76 @@
 # path = "D:\\SoundsYoutube\\video_Hg5l7h4hNhs.wav"
 # print("\nFull text:", get_large_audio_transcription(path))
 
-#import library
+
 import speech_recognition as sr
-import wave
-import contextlib
-# Initialize recognizer class (for recognizing the speech)
+
+path = "D:\\SoundsYoutube\\output3.wav"
+# obtain audio from the microphone
 r = sr.Recognizer()
-
-# Reading Audio file as source
-# listening the audio file and store in audio_text variable
-
-fname = 'D:\\SoundsYoutube\\video_Hg5l7h4hNhs.wav'
-duration = 0
-
-with contextlib.closing(wave.open(fname,'r')) as f:
-    frames = f.getnframes()
-    rate = f.getframerate()
-    duration = frames / float(rate)
-    print(duration)
-
-audio_file = sr.AudioFile(fname)
+audio_file = sr.AudioFile(path)
 with audio_file as source:
-    r.adjust_for_ambient_noise(source, duration=0.5)
-    audio_file = r.record(source, duration= duration - 3, offset=5.0)
-    result = r.recognize_google(audio_data=audio_file, show_all=True)
-    text = result
-    print(text)
+    print("Say something!")
+    audio = r.listen(source)
 
-    # audio_text = r.listen(source)
+# # recognize speech using Sphinx
+# try:
+#     print("Sphinx thinks you said : \n " + r.recognize_sphinx(audio))
+# except sr.UnknownValueError:
+#     print("Sphinx could not understand audio")
+# except sr.RequestError as e:
+#     print("Sphinx error; {0}".format(e))
+
+# recognize speech using Google Speech Recognition
+try:
+    # for testing purposes, we're just using the default API key
+    # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+    # instead of `r.recognize_google(audio)`
+    print("Google Speech Recognition thinks you said : \n" + r.recognize_google(audio))
+except sr.UnknownValueError:
+    print("Google Speech Recognition could not understand audio")
+except sr.RequestError as e:
+    print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
+
+
+# #import library
+# import speech_recognition as sr
+# import wave
+# import contextlib
+# # Initialize recognizer class (for recognizing the speech)
+# r = sr.Recognizer()
+
+# # Reading Audio file as source
+# # listening the audio file and store in audio_text variable
+
+# fname = 'D:\\SoundsYoutube\\output.wav'
+# duration = 0
+
+# with contextlib.closing(wave.open(fname,'r')) as f:
+#     frames = f.getnframes()
+#     rate = f.getframerate()
+#     duration = frames / float(rate)
+#     print(duration)
+
+# audio_file = sr.AudioFile(fname)
+# with audio_file as source:
+#     r.adjust_for_ambient_noise(source, duration=0.5)
+#     audio_file = r.record(source)
+#     result = r.recognize_google(audio_data=audio_file, language="en-IN")
+# text = result
+# print(text)
+
+# #     audio_text = r.listen(source)
     
-# # recoginize_() method will throw a request error if the API is unreachable, hence using exception handling
-#     try:
-#         print(audio_text)
-#         # using google speech recognition
-#         text = r.recognize_google(audio_text, language="en-EN", show_all=True)
-#         print('Converting audio transcripts into text ...')
-#         print(text)
-#     # except sr.UnknownValueError as e:
-#     #     print(e)
-#     #     print('Sorry.. run again... ')
-#     except sr.RequestError as ex:
-#         print(ex) 
+# # # recoginize_() method will throw a request error if the API is unreachable, hence using exception handling
+# #     try:
+# #         print(audio_text)
+# #         # using google speech recognition
+# #         text = r.recognize_google(audio_text, language="en-EN", show_all=True)
+# #         print('Converting audio transcripts into text ...')
+# #         print(text)
+# #     # except sr.UnknownValueError as e:
+# #     #     print(e)
+# #     #     print('Sorry.. run again... ')
+# #     except sr.RequestError as ex:
+# #         print(ex) 
