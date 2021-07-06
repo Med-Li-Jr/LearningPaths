@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid Css</title>
+    <title>Grid and Flex Css</title>
     <style>
         div {
             border: solid black 1px;
@@ -12,133 +12,144 @@
         }
 
         #mHearder {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: 50px;
-            grid-template-areas: 
-                "logo logo logo logo logo logo logo logo logo choiceLang choiceLang choiceLang";
+            display: flex;
+            height: 50px;
+
         }
 
         #logo {
-            grid-area: logo;
+            margin-right: auto;
         }
 
         #languageChoice {
-            grid-area: choiceLang;
+            margin-left: auto;
         }
 
-        #mBanner{
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: 50px;
-            grid-template-areas: 
-                "title title title title title video video video video video video video";
+        #mBanner {
+            display: flex;
+            height: 50%;
         }
-        
+
         #textTitle {
-            grid-area: title;
+            flex: 1;
+            text-align: center;
+            align-self: center;
         }
 
         #videoTitle {
-            grid-area: video;
+            flex: 2;
         }
-        #wavebanner{
+
+        #wavebanner {
             text-align: center;
         }
-        #menuBar{
+
+        /* #menuBar{
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-template-rows: 25px;
             grid-template-areas: 
                 ". . . . btnH btnP btnA . . . .";
         
-        }
-        
-        #btnHome {
-            grid-area: btnH;
-        }
-
-        #btnPrice {
-            grid-area: btnP;
+        } */
+        #menuBar {
+            display: flex;
+            height: 30px;
+            justify-content: center;
         }
 
-        #btnAlternatives {
-            grid-area: btnA;
+        #menuBar>* {
+            padding: 1%;
+            margin: 0;
         }
-        
-        #textIdentification{
 
-        }
-        #howItWorks{
+        #btnHome {}
 
-        }
-        #allServices{
+        #btnPrice {}
 
-        }
-        #whyUseIt{
+        #btnAlternatives {}
 
+
+        #textIdentification {
+            text-align: center;
         }
 
 
+        #textDesciption {}
 
-        #textDesciption {
-            grid-column: 1 / -1;
+        #contact {}
+
+
+        .titleSection {
+            text-align: center;
         }
 
-        #contact {
-            grid-column: 1 / -1;
+
+        #howItWorks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 50px 50px;
+            grid-template-areas: "t t t" "s r p";
         }
 
-        #titleSection {
-            grid-column: 1 / -1;
+        #howItWorks .titleSection {
+            grid-area: t;
         }
 
-        #sendVid {
-            grid-column: 1 / -1;
+        .sendVid {
+            grid-area: s;
         }
 
         #receiveEmail {
-            grid-column: 1 / -1;
+            grid-area: r;
         }
 
         #payBills {
-            grid-column: 1 / -1;
+            grid-area: p;
         }
 
-        #titleSection {
-            grid-column: 1 / -1;
+        #allServices {
+            display: grid;
+            grid-template-columns: 1fr;
         }
+
 
         #captionDesc {
-            grid-column: 1 / -1;
+            justify-self: center;
         }
 
+        #servicesCaption{
+            display: flex;
+            justify-content: space-around;
+        }
         #captionDescOpen {
-            grid-column: 1 / -1;
         }
 
         #captionDescClose {
-            grid-column: 1 / -1;
         }
 
         #translationDesc {
-            grid-column: 1 / -1;
+            justify-self: center;
         }
 
-        #titleSection {
-            grid-column: 1 / -1;
+        #whyUseIt {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        #whyCaption{
+            display: flex;
+            justify-content: space-around;
         }
 
         #whyCaptionOpen {
-            grid-column: 1 / -1;
         }
 
         #whyCaptionClose {
-            grid-column: 1 / -1;
         }
 
         #whyTranslation {
-            grid-column: 1 / -1;
+            justify-self: center;
+            
         }
     </style>
 </head>
@@ -164,22 +175,26 @@
             <div id="contact">contact</div>
         </div>
         <div id="howItWorks" class="mSection">
-            <div id="titleSection">titleSection</div>
-            <div id="sendVid">sendVid</div>
+            <div class="titleSection">titleSection</div>
+            <div class="sendVid">sendVid</div>
             <div id="receiveEmail">receiveEmail</div>
             <div id="payBills">payBills</div>
         </div>
         <div id="allServices" class="mSection">
-            <div id="titleSection">titleSection</div>
+            <div class="titleSection">titleSection</div>
             <div id="captionDesc">captionDesc</div>
-            <div id="captionDescOpen">captionDescOpen</div>
-            <div id="captionDescClose">captionDescClose</div>
+            <div id="servicesCaption">
+                <div id="captionDescOpen">captionDescOpen</div>
+                <div id="captionDescClose">captionDescClose</div>    
+            </div>
             <div id="translationDesc">translationDesc</div>
         </div>
         <div id="whyUseIt" class="mSection">
-            <div id="titleSection">titleSection</div>
-            <div id="whyCaptionOpen">whyCaptionOpen</div>
-            <div id="whyCaptionClose">whyCaptionClose</div>
+            <div class="titleSection">titleSection</div>
+            <div id="whyCaption">
+                <div id="whyCaptionOpen">whyCaptionOpen</div>
+                <div id="whyCaptionClose">whyCaptionClose</div>    
+            </div>
             <div id="whyTranslation">whyTranslation</div>
         </div>
     </div>
