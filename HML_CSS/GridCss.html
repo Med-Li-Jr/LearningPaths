@@ -1,0 +1,188 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Css</title>
+    <style>
+        div {
+            border: solid black 1px;
+            margin: 1%;
+        }
+
+        #mHearder {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 50px;
+            grid-template-areas: 
+                "logo logo logo logo logo logo logo logo logo choiceLang choiceLang choiceLang";
+        }
+
+        #logo {
+            grid-area: logo;
+        }
+
+        #languageChoice {
+            grid-area: choiceLang;
+        }
+
+        #mBanner{
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 50px;
+            grid-template-areas: 
+                "title title title title title video video video video video video video";
+        }
+        
+        #textTitle {
+            grid-area: title;
+        }
+
+        #videoTitle {
+            grid-area: video;
+        }
+        #wavebanner{
+            text-align: center;
+        }
+        #menuBar{
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 25px;
+            grid-template-areas: 
+                ". . . . btnH btnP btnA . . . .";
+        
+        }
+        
+        #btnHome {
+            grid-area: btnH;
+        }
+
+        #btnPrice {
+            grid-area: btnP;
+        }
+
+        #btnAlternatives {
+            grid-area: btnA;
+        }
+        
+        #textIdentification{
+
+        }
+        #howItWorks{
+
+        }
+        #allServices{
+
+        }
+        #whyUseIt{
+
+        }
+
+
+
+        #textDesciption {
+            grid-column: 1 / -1;
+        }
+
+        #contact {
+            grid-column: 1 / -1;
+        }
+
+        #titleSection {
+            grid-column: 1 / -1;
+        }
+
+        #sendVid {
+            grid-column: 1 / -1;
+        }
+
+        #receiveEmail {
+            grid-column: 1 / -1;
+        }
+
+        #payBills {
+            grid-column: 1 / -1;
+        }
+
+        #titleSection {
+            grid-column: 1 / -1;
+        }
+
+        #captionDesc {
+            grid-column: 1 / -1;
+        }
+
+        #captionDescOpen {
+            grid-column: 1 / -1;
+        }
+
+        #captionDescClose {
+            grid-column: 1 / -1;
+        }
+
+        #translationDesc {
+            grid-column: 1 / -1;
+        }
+
+        #titleSection {
+            grid-column: 1 / -1;
+        }
+
+        #whyCaptionOpen {
+            grid-column: 1 / -1;
+        }
+
+        #whyCaptionClose {
+            grid-column: 1 / -1;
+        }
+
+        #whyTranslation {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mContainer">
+        <div id="mHearder" class="mSection">
+            <div id="logo">logo</div>
+            <div id="languageChoice">languageChoice</div>
+        </div>
+        <div id="mBanner" class="mSection">
+            <div id="textTitle">textTitle</div>
+            <div id="videoTitle">videoTitle</div>
+        </div>
+        <div id="waveBanner">waveBanner</div>
+        <div id="menuBar" class="mSection">
+            <div id="btnHome">btnHome</div>
+            <div id="btnPrice">btnPrice</div>
+            <div id="btnAlternatives">btnAlternatives</div>
+        </div>
+        <div id="textIdentification" class="mSection">
+            <div id="textDesciption">textDesciption</div>
+            <div id="contact">contact</div>
+        </div>
+        <div id="howItWorks" class="mSection">
+            <div id="titleSection">titleSection</div>
+            <div id="sendVid">sendVid</div>
+            <div id="receiveEmail">receiveEmail</div>
+            <div id="payBills">payBills</div>
+        </div>
+        <div id="allServices" class="mSection">
+            <div id="titleSection">titleSection</div>
+            <div id="captionDesc">captionDesc</div>
+            <div id="captionDescOpen">captionDescOpen</div>
+            <div id="captionDescClose">captionDescClose</div>
+            <div id="translationDesc">translationDesc</div>
+        </div>
+        <div id="whyUseIt" class="mSection">
+            <div id="titleSection">titleSection</div>
+            <div id="whyCaptionOpen">whyCaptionOpen</div>
+            <div id="whyCaptionClose">whyCaptionClose</div>
+            <div id="whyTranslation">whyTranslation</div>
+        </div>
+    </div>
+</body>
+
+</html>
