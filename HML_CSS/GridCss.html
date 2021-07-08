@@ -6,15 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grid and Flex Css</title>
     <style>
-        div {
-            border: solid black 1px;
-            margin: 1%;
+        body {
+            margin: 0;
+            padding: 0;
         }
 
-        #mHearder {
-            display: flex;
-            height: 50px;
+        .mContainer {
+            width: 80%;
+            margin: 0 auto;
+        }
 
+        div {
+            /* border: solid black 1px; */
+        }
+
+        #allHeader {
+            background-color: #0099ff;
+        }
+
+        #mHearder .mContainer {
+            display: flex;
+            height: auto;
         }
 
         #logo {
@@ -23,43 +35,58 @@
 
         #languageChoice {
             margin-left: auto;
+            display: flex;
+            align-items: center;
         }
 
-        #mBanner {
+        #mBanner .mContainer {
             display: flex;
-            height: 50%;
         }
 
         #textTitle {
             flex: 1;
-            text-align: center;
+            color: white;
             align-self: center;
+            padding-left: 2%;
         }
 
         #videoTitle {
-            flex: 2;
+            flex: 1.5;
+            padding: 1%;
+            height: 450;
         }
 
-        #wavebanner {
+        #waveHeader {
+            position: relative;
+            height: 20%;
+            background-color: white;
+            background-image: url(./assets/images/wave4.svg);
+            background-size: cover;
+            background-position: center;
+            padding: 0;
+            margin: -1% 0 0 0;
             text-align: center;
+            z-index: -100;
         }
 
-        /* #menuBar{
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: 25px;
-            grid-template-areas: 
-                ". . . . btnH btnP btnA . . . .";
-        
-        } */
-        #menuBar {
+        #waveHeader .mContainer {
             display: flex;
-            height: 30px;
+            height: 100%;
+            justify-content: center;
+        }
+        #waveHeader .mContainer > * {
+            align-self: flex-end;
+            padding: 0.5% 2%;
+            margin: 0;
+        }
+        #menuBar .mContainer {
+            display: flex;
+            height: 40px;
             justify-content: center;
         }
 
-        #menuBar>* {
-            padding: 1%;
+        #menuBar .mContainer> * {
+            padding: 1% 20%;
             margin: 0;
         }
 
@@ -75,127 +102,335 @@
         }
 
 
-        #textDesciption {}
-
-        #contact {}
-
+        #textDesciption {
+            padding: 1% 3%;
+        }
 
         .titleSection {
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
 
 
-        #howItWorks {
+        #howItWorks .mContainer {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 50px 50px;
-            grid-template-areas: "t t t" "s r p";
+            grid-template-areas: "t t t""s r p";
+            gap: 1%;
         }
 
-        #howItWorks .titleSection {
+        #howItWorks .mContainer .titleSection {
             grid-area: t;
         }
 
         .sendVid {
             grid-area: s;
+            text-align: center;
         }
 
         #receiveEmail {
             grid-area: r;
+            text-align: center;
         }
 
         #payBills {
             grid-area: p;
+            text-align: center;
         }
 
-        #allServices {
+        #allServices .mContainer {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
         }
 
-
+        #allServices .titleSection{
+            grid-column: 1 / -1;
+        }
         #captionDesc {
-            justify-self: center;
+            grid-column: 2/3;
+            text-align: center;
         }
 
-        #servicesCaption{
+        #servicesCaption {
+            grid-column: 1/-1;
             display: flex;
             justify-content: space-around;
         }
+
         #captionDescOpen {
+            margin: 1% 2%;
+            justify-self: center;
+            text-align: center;
         }
 
         #captionDescClose {
+            margin: 1% 2%;
+            justify-self: center;
+            text-align: center;
         }
 
         #translationDesc {
-            justify-self: center;
+            grid-column: 2/3;
+            text-align: center;
         }
 
-        #whyUseIt {
+        #whyUseIt .mContainer {
             display: grid;
             grid-template-columns: 1fr;
         }
-        #whyCaption{
+
+        #whyCaption {
             display: flex;
             justify-content: space-around;
         }
 
         #whyCaptionOpen {
+            flex: 1;
+            margin: 1% 2%;
+            text-align: center;
         }
 
         #whyCaptionClose {
+            flex: 1;
+            margin: 1% 2%; 
+            text-align: center; 
         }
 
         #whyTranslation {
             justify-self: center;
-            
+            text-align: center;
+        }
+        .content_why{
+            text-align: start;
+            padding: 2%;
+        }
+        
+        .mCard {
+            border: solid #0099ff;
+            background-color: white;
+            box-shadow: 7px 7px 5px #aaaaaa,
+                        0 1px 7px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .img_card {
+            padding-top: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text_card {
+            padding: 5px 2px;
+            /* border: solid black; */
+            text-align: center;
+        }
+
+        .text_card h4 {
+            color: #0099ff;
         }
     </style>
 </head>
 
 <body>
-    <div id="mContainer">
+    <div id="allHeader">
+
         <div id="mHearder" class="mSection">
-            <div id="logo">logo</div>
-            <div id="languageChoice">languageChoice</div>
+            <div class="mContainer">
+                <div id="logo">
+                    <img id="imgLogo" height="40px" width="150px" src="./assets/images/logo.png" alt="Logo Web Page">
+                </div>
+                <div id="languageChoice">
+                    <div id="langEN">
+                        <img id="imgEN" height="26px" src="./assets/images/UK-US-Flag.png" alt="EN Language">
+                    </div>
+                    <div id="langFR">
+                        <img id="imgFR" height="30px" src="./assets/images/Fr_Flag.png" alt="FR Language">
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="mBanner" class="mSection">
-            <div id="textTitle">textTitle</div>
-            <div id="videoTitle">videoTitle</div>
+            <div class="mContainer">
+                <div id="textTitle">
+                    <h1 class="main_title">Let’s add some captions to your video</h1>
+                    <p class="">
+                        With a rate starting at 1€, you can transcribe your videos files.
+                    </p>
+                </div>
+                <div id="videoTitle">
+                    <img id="imgLogo" src="./assets/images/Fr_Flag.png" height="100%" width="100%"
+                            alt="Logo Web Page">
+                </div>
+            </div>
         </div>
-        <div id="waveBanner">waveBanner</div>
-        <div id="menuBar" class="mSection">
+    </div>
+    <div id="waveHeader">
+        <div class="mContainer">
+            <div id="btnHome">Home</div>
+            <div id="btnPrice">Price</div>
+            <div id="btnAlternatives">Alternatives</div>
+        </div>
+    </div>
+    <!-- <div id="menuBar" class="mSection">
+        <div class="mContainer">
             <div id="btnHome">btnHome</div>
             <div id="btnPrice">btnPrice</div>
             <div id="btnAlternatives">btnAlternatives</div>
         </div>
-        <div id="textIdentification" class="mSection">
-            <div id="textDesciption">textDesciption</div>
-            <div id="contact">contact</div>
+    </div> -->
+    <div id="textIdentification" class="mSection">
+        <div class="mContainer">
+            <div id="textDesciption">
+                <p> Hi there, my name is Victor, I'm a student in Master Computer Science. I created this site to get some
+                    money to help me with my studies by helping you turn your video into text. Everything that follows is
+                    explained in the video above.
+                </p>
+                
+                <h3>
+                    Email: <a href="https://mail.google.com/" target="n">contacts.vidcs@gmail.com</a>
+                </h3>
+            </div>
         </div>
-        <div id="howItWorks" class="mSection">
-            <div class="titleSection">titleSection</div>
-            <div class="sendVid">sendVid</div>
-            <div id="receiveEmail">receiveEmail</div>
-            <div id="payBills">payBills</div>
+    </div>
+    <div id="howItWorks" class="mSection">
+        <div class="mContainer">
+            <h1 class="titleSection">
+                How it works
+            </h1>
+            <div id="sendVid" class="mCard">
+                
+                <div class="img_card">
+                    <img src="./assets/images/thirdMail.png" class="rounded-circle" height="100px" width="100px"
+                        alt="img">
+                </div>
+                <div class="text_card">
+                    <p class="eng">
+                        Send your video or the url by email and the parameters.
+                    </p>
+                </div>
+
+            </div>
+            <div id="receiveEmail" class="mCard">
+                <div class="img_card">
+                    <img src="./assets/images/fifthMail.png" class="rounded-circle" height="100px" width="100px"
+                        alt="img">
+                </div>
+                <div class="text_card">
+                    <p class="eng">
+                        Receive your transcribed file by email.
+                        If there is an update to be made, send them and later you will get the updated file back to
+                        you.
+                    </p>
+                </div>
+            </div>
+            <div id="payBills" class="mCard">
+                <div class="img_card">
+                    <img src="./assets/images/money.png" class="rounded-circle" height="100px" width="100px" alt="img">
+                </div>
+                <div class="text_card">
+                    <p class="eng">
+                        Pay the amount.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div id="allServices" class="mSection">
-            <div class="titleSection">titleSection</div>
-            <div id="captionDesc">captionDesc</div>
+    </div>
+    <div id="allServices" class="mSection">
+        <div class="mContainer">
+            <h1 class="titleSection">Services</h1>
+            <div id="captionDesc" class="mCard">
+                <div class="text_card">
+                    <h4 class="text-center">Caption <br> <small>(Starts at 1€ /min)</small></h4>
+                    <p class="eng content_services">
+                        <b>Captioning</b> is the process of converting the audio content
+                        of a video file into text, then displaying the text on that video, most time in the bottom.
+                        <br> There are 2 types of captions: <b>open</b> and <b>closed</b> captions.
+                    </p>
+                </div>
+            </div>
             <div id="servicesCaption">
-                <div id="captionDescOpen">captionDescOpen</div>
-                <div id="captionDescClose">captionDescClose</div>    
+                <div id="captionDescOpen" class="mCard">
+                    <div class="text_card">
+                        <h4 class="text-center">Open Caption</h4>
+                        <div class="textprice">
+                            <small style="visibility: hidden;">qsdfsdfsdf</small>
+                        </div>
+                        <p class="eng content_services">
+                            <b>Open</b> captions are permanently fixed to the video, meaning that you can’t switch them
+                            off/on.
+                            They are mostly used on social media, or when the video player does not have <b> [CC]</b>
+                            functionality.
+                        </p>
+                    </div>
+                </div>
+                <div id="captionDescClose" class="mCard">
+                    <div class="text_card">
+                        <h4 class="text-center">Closed Caption</h4>
+                        <div class="textprice">
+                            <small style="visibility: hidden;">qsdfsdfsdf</small>
+                        </div>
+                        <p class="eng content_services">
+                            <b>Closed</b> captions are almost the same with Open captions, except they can be 
+                            enabled by the user watching the video only when needed.
+                            You can mostly see them on Youtube, Vimeo, Netflix etc...
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div id="translationDesc">translationDesc</div>
+            <div id="translationDesc" class="mCard">
+                <div class="text_card">
+                    <h4 class="text-center">Translation/Subtitles
+                        <br>    <small>(Starts at 2€ /min)</small>
+                    </h4>
+                    <p class="eng text-center content_services">
+                        As an option, you can translate your captions into another Language (English or French) to
+                        get more viewers.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div id="whyUseIt" class="mSection">
-            <div class="titleSection">titleSection</div>
+    </div>
+    <div id="whyUseIt" class="mSection">
+        <div class="mContainer">
+            <h1 class="titleSection">Why Use Caption or Translation</h1>
             <div id="whyCaption">
-                <div id="whyCaptionOpen">whyCaptionOpen</div>
-                <div id="whyCaptionClose">whyCaptionClose</div>    
+                <div id="whyCaptionOpen" class="mCard">
+                    <div class="text_card">
+                        <h4>Open Caption</h4>
+                        <div class="eng content_why">
+                            <p>- Great for accessibility and comprehension especially deaf, hard of hearing, or hearing
+                                impaired people.
+                            </p>
+                            <p>- Useful for people in a noisy environment, or stuck without speakers.</p>
+                            <p>- Grab and hold your audience’s attention.</p>
+                            <p>- And more...</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="whyCaptionClose" class="mCard">
+                    <div class="text_card">
+                        <h4>Closed Caption</h4>
+                        <div class="eng content_why">
+                            <p>- Same as Open Caption</p>
+                            <p>- Can be turned on and off by the viewer.</p>
+                            <p>- Excellent ranking for your videos on Google</p>
+                            <p>- And more...</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="whyTranslation">whyTranslation</div>
+            <div id="whyTranslation" class="mCard">
+                <div class="text_card">
+                    <h4 class="text-center">Translation/Subtitles</h4>
+                    <div class="eng content_why">
+                        <p>- Most useful when the viewer
+                            doesn’t speak the language used by the speakers in a video.</p>
+                        <p>- Improve Language Skills for the viewer</p>
+                        <p>- And more...</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

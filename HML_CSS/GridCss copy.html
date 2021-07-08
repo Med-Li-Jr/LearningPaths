@@ -1,0 +1,212 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid and Flex Css</title>
+    <style>
+
+        body {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div {
+            border: solid black 1px;
+            margin: 1%;
+        }
+
+        #mHearder {
+            display: flex;
+            height: 50px;
+
+        }
+
+        #logo {
+            margin-right: auto;
+        }
+
+        #languageChoice {
+            margin-left: auto;
+        }
+
+        #mBanner {
+            display: flex;
+            height: 50%;
+        }
+
+        #textTitle {
+            flex: 1;
+            text-align: center;
+            align-self: center;
+        }
+
+        #videoTitle {
+            flex: 2;
+            text-align: center;
+            align-self: center;
+            max-height: 300px;
+        }
+
+        #wavebanner {
+            text-align: center;
+        }
+
+        /* #menuBar{
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 25px;
+            grid-template-areas: 
+                ". . . . btnH btnP btnA . . . .";
+        
+        } */
+        #menuBar {
+            display: flex;
+            height: 30px;
+            justify-content: center;
+        }
+
+        #menuBar>* {
+            padding: 1%;
+            margin: 0;
+        }
+
+        #btnHome {}
+
+        #btnPrice {}
+
+        #btnAlternatives {}
+
+
+        #textIdentification {
+            text-align: center;
+        }
+
+
+        #textDesciption {}
+
+        #contact {}
+
+
+        .titleSection {
+            text-align: center;
+        }
+
+
+        #howItWorks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 50px 50px;
+            grid-template-areas: "t t t" "s r p";
+        }
+
+        #howItWorks .titleSection {
+            grid-area: t;
+        }
+
+        .sendVid {
+            grid-area: s;
+        }
+
+        #receiveEmail {
+            grid-area: r;
+        }
+
+        #payBills {
+            grid-area: p;
+        }
+
+        #allServices {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+
+        #captionDesc {
+            justify-self: center;
+        }
+
+        #servicesCaption{
+            display: flex;
+            justify-content: space-around;
+        }
+        #captionDescOpen {
+        }
+
+        #captionDescClose {
+        }
+
+        #translationDesc {
+            justify-self: center;
+        }
+
+        #whyUseIt {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        #whyCaption{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #whyCaptionOpen {
+        }
+
+        #whyCaptionClose {
+        }
+
+        #whyTranslation {
+            justify-self: center;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mContainer">
+        <div id="mHearder" class="mSection">
+            <div id="logo">logo</div>
+            <div id="languageChoice">languageChoice</div>
+        </div>
+        <div id="mBanner" class="mSection">
+            <div id="textTitle">textTitle</div>
+            <div id="videoTitle">videoTitle</div>
+        </div>
+        <div id="waveBanner">waveBanner</div>
+        <div id="menuBar" class="mSection">
+            <div id="btnHome">btnHome</div>
+            <div id="btnPrice">btnPrice</div>
+            <div id="btnAlternatives">btnAlternatives</div>
+        </div>
+        <div id="textIdentification" class="mSection">
+            <div id="textDesciption">textDesciption</div>
+            <div id="contact">contact</div>
+        </div>
+        <div id="howItWorks" class="mSection">
+            <div class="titleSection">titleSection</div>
+            <div class="sendVid">sendVid</div>
+            <div id="receiveEmail">receiveEmail</div>
+            <div id="payBills">payBills</div>
+        </div>
+        <div id="allServices" class="mSection">
+            <div class="titleSection">titleSection</div>
+            <div id="captionDesc">captionDesc</div>
+            <div id="servicesCaption">
+                <div id="captionDescOpen">captionDescOpen</div>
+                <div id="captionDescClose">captionDescClose</div>    
+            </div>
+            <div id="translationDesc">translationDesc</div>
+        </div>
+        <div id="whyUseIt" class="mSection">
+            <div class="titleSection">titleSection</div>
+            <div id="whyCaption">
+                <div id="whyCaptionOpen">whyCaptionOpen</div>
+                <div id="whyCaptionClose">whyCaptionClose</div>    
+            </div>
+            <div id="whyTranslation">whyTranslation</div>
+        </div>
+    </div>
+</body>
+
+</html>
