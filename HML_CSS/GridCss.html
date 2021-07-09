@@ -9,10 +9,11 @@
         body {
             margin: 0;
             padding: 0;
+            font-size: 1.3em;
         }
 
         .mContainer {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
         }
 
@@ -53,18 +54,19 @@
         #videoTitle {
             flex: 1.5;
             padding: 1%;
-            height: 450;
+            text-align: center;
+            border: solid;
         }
-
+        
         #waveHeader {
             position: relative;
-            height: 20%;
+            height: 170px;
             background-color: white;
             background-image: url(./assets/images/wave4.svg);
             background-size: cover;
             background-position: center;
             padding: 0;
-            margin: -1% 0 0 0;
+            margin-top: -2%;
             text-align: center;
             z-index: -100;
         }
@@ -74,19 +76,9 @@
             height: 100%;
             justify-content: center;
         }
-        #waveHeader .mContainer > * {
+        #waveHeader .mContainer>* {
             align-self: flex-end;
             padding: 0.5% 2%;
-            margin: 0;
-        }
-        #menuBar .mContainer {
-            display: flex;
-            height: 40px;
-            justify-content: center;
-        }
-
-        #menuBar .mContainer> * {
-            padding: 1% 20%;
             margin: 0;
         }
 
@@ -112,7 +104,11 @@
             padding: 0;
         }
 
-
+        #howItWorks{
+            background-color: #f8f9fa;
+            height: 400px;
+            padding-top: 10px;
+        }
         #howItWorks .mContainer {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -120,8 +116,13 @@
             gap: 1%;
         }
 
+
+        #howItWorks .mContainer > div{
+            width: inherit !important;
+        }
         #howItWorks .mContainer .titleSection {
             grid-area: t;
+            padding-bottom: 40px;
         }
 
         .sendVid {
@@ -138,15 +139,19 @@
             grid-area: p;
             text-align: center;
         }
-
+        #allServices{
+            padding-top: 10px;
+        }
         #allServices .mContainer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
 
-        #allServices .titleSection{
+        #allServices .titleSection {
             grid-column: 1 / -1;
+            padding-bottom: 40px;
         }
+
         #captionDesc {
             grid-column: 2/3;
             text-align: center;
@@ -170,14 +175,38 @@
             text-align: center;
         }
 
+        #backgroundServices {
+            margin-top: 20px;
+            height: 350px;
+            background-image: url(./assets/images/MultiLang.png);
+        }
+
+        #servicesbBackground {
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+
         #translationDesc {
-            grid-column: 2/3;
+            width: 500px;
+            height: 200px;
+            margin: 1% 2%;
+            align-self: center;
             text-align: center;
         }
 
+        #whyUseIt{
+            padding-top: 10px;
+        }
         #whyUseIt .mContainer {
             display: grid;
             grid-template-columns: 1fr;
+        }
+
+        #whyUseIt .titleSection {
+            padding-bottom: 40px;
         }
 
         #whyCaption {
@@ -193,24 +222,26 @@
 
         #whyCaptionClose {
             flex: 1;
-            margin: 1% 2%; 
-            text-align: center; 
+            margin: 1% 2%;
+            text-align: center;
         }
 
         #whyTranslation {
             justify-self: center;
             text-align: center;
         }
-        .content_why{
+
+        .content_why {
             text-align: start;
             padding: 2%;
         }
-        
+
         .mCard {
+            width: 500px;
             border: solid #0099ff;
             background-color: white;
             box-shadow: 7px 7px 5px #aaaaaa,
-                        0 1px 7px 0 rgba(0, 0, 0, 0.15);
+                0 1px 7px 0 rgba(0, 0, 0, 0.15);
         }
 
         .img_card {
@@ -228,6 +259,20 @@
 
         .text_card h4 {
             color: #0099ff;
+        }
+        
+        .non_active {
+            border-bottom: black solid;
+            font-size: 1.18em;
+        }
+
+        .active {
+            border-bottom: #0099ff solid;
+            border-style: none;
+            font-weight: bold;
+            font-size: 1.3em;
+            outline: none;
+            border-bottom-style: solid;
         }
     </style>
 </head>
@@ -259,34 +304,31 @@
                     </p>
                 </div>
                 <div id="videoTitle">
-                    <img id="imgLogo" src="./assets/images/Fr_Flag.png" height="100%" width="100%"
-                            alt="Logo Web Page">
+                    <video class="embed-responsive-item eng"  height="300" width="500" id="videoLogo" controls controlsList="nodownload">
+                        <source src="https://github.com/VidCS/VIDCS/blob/master/videos/vidEN.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
                 </div>
             </div>
         </div>
     </div>
     <div id="waveHeader">
         <div class="mContainer">
-            <div id="btnHome">Home</div>
-            <div id="btnPrice">Price</div>
-            <div id="btnAlternatives">Alternatives</div>
+            <div class="non_active active"><a id="btnHome">Home</a></div>
+            <div class="non_active"><a id="btnPrice">Price</a></div>
+            <div class="non_active"><a id="btnAlternatives">Alternatives</a></div>
         </div>
     </div>
-    <!-- <div id="menuBar" class="mSection">
-        <div class="mContainer">
-            <div id="btnHome">btnHome</div>
-            <div id="btnPrice">btnPrice</div>
-            <div id="btnAlternatives">btnAlternatives</div>
-        </div>
-    </div> -->
     <div id="textIdentification" class="mSection">
         <div class="mContainer">
             <div id="textDesciption">
-                <p> Hi there, my name is Victor, I'm a student in Master Computer Science. I created this site to get some
-                    money to help me with my studies by helping you turn your video into text. Everything that follows is
+                <p> Hi there, my name is Victor, I'm a student. I created this site to get
+                    some
+                    money to help me with my studies by helping you turn your video into text. Everything that follows
+                    is
                     explained in the video above.
                 </p>
-                
+
                 <h3>
                     Email: <a href="https://mail.google.com/" target="n">contacts.vidcs@gmail.com</a>
                 </h3>
@@ -299,7 +341,7 @@
                 How it works
             </h1>
             <div id="sendVid" class="mCard">
-                
+
                 <div class="img_card">
                     <img src="./assets/images/thirdMail.png" class="rounded-circle" height="100px" width="100px"
                         alt="img">
@@ -371,22 +413,27 @@
                             <small style="visibility: hidden;">qsdfsdfsdf</small>
                         </div>
                         <p class="eng content_services">
-                            <b>Closed</b> captions are almost the same with Open captions, except they can be 
+                            <b>Closed</b> captions are almost the same with Open captions, except they can be
                             enabled by the user watching the video only when needed.
                             You can mostly see them on Youtube, Vimeo, Netflix etc...
                         </p>
                     </div>
                 </div>
             </div>
-            <div id="translationDesc" class="mCard">
-                <div class="text_card">
-                    <h4 class="text-center">Translation/Subtitles
-                        <br>    <small>(Starts at 2€ /min)</small>
-                    </h4>
-                    <p class="eng text-center content_services">
-                        As an option, you can translate your captions into another Language (English or French) to
-                        get more viewers.
-                    </p>
+        </div>
+        <div id="backgroundServices">
+            <div id="servicesbBackground">
+
+                <div id="translationDesc" class="mCard">
+                    <div class="text_card">
+                        <h4 class="text-center">Translation/Subtitles
+                            <br> <small>(Starts at 2€ /min)</small>
+                        </h4>
+                        <p class="eng text-center content_services">
+                            As an option, you can translate your captions into another Language (English or French) to
+                            get more viewers.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
