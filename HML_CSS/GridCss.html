@@ -35,25 +35,25 @@
         }
 
         #languageChoice {
-            margin-left: auto;
             display: flex;
             align-items: center;
         }
 
         #mBanner .mContainer {
-            display: flex;
+            padding-top: 15px;
+            display: grid;
+            gap: 5px;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
         }
 
         #textTitle {
             flex: 1;
             color: white;
             align-self: center;
-            padding-left: 2%;
         }
 
         #videoTitle {
             flex: 1.5;
-            padding: 1%;
             text-align: center;
             border: solid;
         }
@@ -106,72 +106,63 @@
 
         #howItWorks{
             background-color: #f8f9fa;
-            height: 400px;
             padding-top: 10px;
         }
-        #howItWorks .mContainer {
+        /* #howItWorks .mContainer {
+        } */
+        #howItWorksContent{
+            margin-top: 15px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-areas: "t t t""s r p";
-            gap: 1%;
-        }
-
-
-        #howItWorks .mContainer > div{
-            width: inherit !important;
-        }
-        #howItWorks .mContainer .titleSection {
-            grid-area: t;
-            padding-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
         }
 
         .sendVid {
-            grid-area: s;
             text-align: center;
         }
 
         #receiveEmail {
-            grid-area: r;
             text-align: center;
         }
 
         #payBills {
-            grid-area: p;
             text-align: center;
         }
+
         #allServices{
-            padding-top: 10px;
+            padding-top: 20px;
         }
         #allServices .mContainer {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
 
         #allServices .titleSection {
             grid-column: 1 / -1;
-            padding-bottom: 40px;
         }
 
         #captionDesc {
-            grid-column: 2/3;
+            grid-column: 1 /-1;
             text-align: center;
         }
 
         #servicesCaption {
             grid-column: 1/-1;
-            display: flex;
-            justify-content: space-around;
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 50px;
         }
 
         #captionDescOpen {
-            margin: 1% 2%;
-            justify-self: center;
+            /* margin: 1% 2%; */
+            /* justify-self: center; */
             text-align: center;
         }
 
         #captionDescClose {
-            margin: 1% 2%;
-            justify-self: center;
+            /* margin: 1% 2%; */
+            /* justify-self: center; */
             text-align: center;
         }
 
@@ -199,6 +190,7 @@
 
         #whyUseIt{
             padding-top: 10px;
+            margin-bottom: 5%;
         }
         #whyUseIt .mContainer {
             display: grid;
@@ -210,19 +202,16 @@
         }
 
         #whyCaption {
-            display: flex;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 10px;
         }
 
         #whyCaptionOpen {
-            flex: 1;
-            margin: 1% 2%;
             text-align: center;
         }
 
         #whyCaptionClose {
-            flex: 1;
-            margin: 1% 2%;
             text-align: center;
         }
 
@@ -233,11 +222,10 @@
 
         .content_why {
             text-align: start;
-            padding: 2%;
+            padding: 0 2%;
         }
 
         .mCard {
-            width: 500px;
             border: solid #0099ff;
             background-color: white;
             box-shadow: 7px 7px 5px #aaaaaa,
@@ -283,7 +271,7 @@
         <div id="mHearder" class="mSection">
             <div class="mContainer">
                 <div id="logo">
-                    <img id="imgLogo" height="40px" width="150px" src="./assets/images/logo.png" alt="Logo Web Page">
+                    <img id="imgLogo" height="40px" width="150px" src="./assets/images/logoHeader.png" alt="Logo Web Page">
                 </div>
                 <div id="languageChoice">
                     <div id="langEN">
@@ -300,11 +288,11 @@
                 <div id="textTitle">
                     <h1 class="main_title">Let’s add some captions to your video</h1>
                     <p class="">
-                        With a rate starting at 1€, you can transcribe your videos files.
+                        With a rate starting at 1€, you can transcribe your videos.
                     </p>
                 </div>
                 <div id="videoTitle">
-                    <video class="embed-responsive-item eng"  height="300" width="500" id="videoLogo" controls controlsList="nodownload">
+                    <video class="embed-responsive-item eng"  height="300" width="100%" id="videoLogo" controls controlsList="nodownload">
                         <source src="https://github.com/VidCS/VIDCS/blob/master/videos/vidEN.mp4" type="video/mp4">
                         Your browser does not support HTML5 video.
                     </video>
@@ -340,54 +328,55 @@
             <h1 class="titleSection">
                 How it works
             </h1>
-            <div id="sendVid" class="mCard">
+            <div id="howItWorksContent">
+                <div id="sendVid" class="mCard">
 
-                <div class="img_card">
-                    <img src="./assets/images/thirdMail.png" class="rounded-circle" height="100px" width="100px"
-                        alt="img">
+                    <div class="img_card">
+                        <img src="./assets/images/thirdMail.png" class="rounded-circle" height="100px" width="100px"
+                            alt="img">
+                    </div>
+                    <div class="text_card">
+                        <p class="eng">
+                            Send your video or the url by email and the parameters.
+                        </p>
+                    </div>
+    
                 </div>
-                <div class="text_card">
-                    <p class="eng">
-                        Send your video or the url by email and the parameters.
-                    </p>
+                <div id="receiveEmail" class="mCard">
+                    <div class="img_card">
+                        <img src="./assets/images/fifthMail.png" class="rounded-circle" height="100px" width="100px"
+                            alt="img">
+                    </div>
+                    <div class="text_card">
+                        <p class="eng">
+                            Receive your transcribed file by email.
+                        </p>
+                    </div>
                 </div>
-
+                <div id="payBills" class="mCard">
+                    <div class="img_card">
+                        <img src="./assets/images/money.png" class="rounded-circle" height="100px" width="100px" alt="img">
+                    </div>
+                    <div class="text_card">
+                        <p class="eng">
+                            Pay the amount.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div id="receiveEmail" class="mCard">
-                <div class="img_card">
-                    <img src="./assets/images/fifthMail.png" class="rounded-circle" height="100px" width="100px"
-                        alt="img">
-                </div>
-                <div class="text_card">
-                    <p class="eng">
-                        Receive your transcribed file by email.
-                        If there is an update to be made, send them and later you will get the updated file back to
-                        you.
-                    </p>
-                </div>
-            </div>
-            <div id="payBills" class="mCard">
-                <div class="img_card">
-                    <img src="./assets/images/money.png" class="rounded-circle" height="100px" width="100px" alt="img">
-                </div>
-                <div class="text_card">
-                    <p class="eng">
-                        Pay the amount.
-                    </p>
-                </div>
-            </div>
+            
         </div>
     </div>
     <div id="allServices" class="mSection">
         <div class="mContainer">
             <h1 class="titleSection">Services</h1>
-            <div id="captionDesc" class="mCard">
+            <div id="captionDesc" class="">
                 <div class="text_card">
                     <h4 class="text-center">Caption <br> <small>(Starts at 1€ /min)</small></h4>
                     <p class="eng content_services">
                         <b>Captioning</b> is the process of converting the audio content
                         of a video file into text, then displaying the text on that video, most time in the bottom.
-                        <br> There are 2 types of captions: <b>open</b> and <b>closed</b> captions.
+                        There are 2 types of captions: <b>open</b> and <b>closed</b> captions.
                     </p>
                 </div>
             </div>
@@ -395,9 +384,6 @@
                 <div id="captionDescOpen" class="mCard">
                     <div class="text_card">
                         <h4 class="text-center">Open Caption</h4>
-                        <div class="textprice">
-                            <small style="visibility: hidden;">qsdfsdfsdf</small>
-                        </div>
                         <p class="eng content_services">
                             <b>Open</b> captions are permanently fixed to the video, meaning that you can’t switch them
                             off/on.
@@ -409,9 +395,6 @@
                 <div id="captionDescClose" class="mCard">
                     <div class="text_card">
                         <h4 class="text-center">Closed Caption</h4>
-                        <div class="textprice">
-                            <small style="visibility: hidden;">qsdfsdfsdf</small>
-                        </div>
                         <p class="eng content_services">
                             <b>Closed</b> captions are almost the same with Open captions, except they can be
                             enabled by the user watching the video only when needed.
@@ -466,15 +449,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="whyTranslation" class="mCard">
-                <div class="text_card">
-                    <h4 class="text-center">Translation/Subtitles</h4>
-                    <div class="eng content_why">
-                        <p>- Most useful when the viewer
-                            doesn’t speak the language used by the speakers in a video.</p>
-                        <p>- Improve Language Skills for the viewer</p>
-                        <p>- And more...</p>
+                <div id="whyTranslation" class="mCard">
+                    <div class="text_card">
+                        <h4 class="text-center">Translation/Subtitles</h4>
+                        <div class="eng content_why">
+                            <p>- Most useful when the viewer
+                                doesn’t speak the language used by the speakers in a video.</p>
+                            <p>- Improve Language Skills for the viewer</p>
+                            <p>- And more...</p>
+                        </div>
                     </div>
                 </div>
             </div>
