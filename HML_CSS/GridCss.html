@@ -269,9 +269,9 @@
 
         #pricePart {
             margin-top: 30px;
-            padding-bottom: 21px;
+            margin-bottom: 20px;
             text-align: center;
-            background: url(./assets/images/2.png);
+            background: url(./assets/images/2.png) ;
             animation-delay: 0s;
             animation: animates 2s linear infinite;
         }
@@ -302,7 +302,22 @@
         }
 
         .sectionPrice {
-            margin-top: 20px;
+            margin-top: 5px;
+        }
+        .myBtn button {
+            background-color:  #0099ff;
+            color: white;
+        }
+        .titleComponentParameter{
+            margin-top: 10px;
+            color: #0099ff;
+            font-size: 1.3em;
+        }
+        #totalPrice{
+            margin-top: 25px;
+        }
+        #contactPrice{
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -523,23 +538,22 @@
     </div>
 
     <div id="pricePart">
-        <div id="wave1"></div>
         <div class="mContainer">
 
             <div id="pricingBox">
                 <div class="sectionPrice">
-                    <h5 class=" eng">Video duration</h5>
-                    <div id="durationSetup" class="row">
-                        <div class="col-md-4">
+                    <h5 class="titleComponentParameter eng">Video duration</h5>
+                    <div id="durationSetup" class="row justify-content-center">
+                        <div class="col-md-3">
 
                             <div class="input-group" id="hours">
-                                <div class="input-group-prepend mybtn">
+                                <div class="input-group-prepend myBtn">
                                     <button class="btn btn-decrement" type="button"
                                         onclick="decreaseValue('hours')"><strong>-</strong></button>
                                 </div>
                                 <input type="number" value="0" min="0" max="3" step="1" inputmode="decimal"
                                     style="text-align: center" class="form-control" oninput="textChanges('hours')" />
-                                <div class="input-group-append mybtn">
+                                <div class="input-group-append myBtn">
                                     <button class="btn btn-increment" type="button" onclick="increaseValue('hours')">
                                         <strong>+</strong></button>
                                 </div>
@@ -547,15 +561,15 @@
                             <p class="eng">Hours</p>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="input-group" id="minutes">
-                                <div class="input-group-prepend mybtn">
+                                <div class="input-group-prepend myBtn">
                                     <button class="btn btn-decrement" type="button"
                                         onclick="decreaseValue('minutes')"><strong>-</strong></button>
                                 </div>
                                 <input type="number" value="0" min="0" max="60" step="1" inputmode="decimal"
                                     style="text-align: center" class="form-control" oninput="textChanges('minutes')" />
-                                <div class="input-group-append mybtn">
+                                <div class="input-group-append myBtn">
                                     <button class="btn btn-increment" type="button" onclick="increaseValue('minutes')">
                                         <strong>+</strong></button>
                                 </div>
@@ -563,16 +577,16 @@
                             <p>Minutes</p>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
 
                             <div class="input-group" id="secondes">
-                                <div class="input-group-prepend mybtn">
+                                <div class="input-group-prepend myBtn">
                                     <button class="btn btn-decrement" type="button"
                                         onclick="decreaseValue('secondes')"><strong>-</strong></button>
                                 </div>
                                 <input type="number" value="0" min="0" max="60" step="1" inputmode="decimal"
                                     style="text-align: center" class="form-control" oninput="textChanges('secondes')" />
-                                <div class="input-group-append mybtn">
+                                <div class="input-group-append myBtn">
                                     <button class="btn btn-increment" type="button" onclick="increaseValue('secondes')">
                                         <strong>+</strong></button>
                                 </div>
@@ -585,9 +599,9 @@
                 <div class="row sectionPrice">
 
                     <div class="col-xl-4">
-                        <h5 class="">Caption</h5>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <h5 class="titleComponentParameter">Caption</h5>
+                        <div class="row justify-content-center">
+                            <div class="col-6">
                                 <div class="custom-control custom-radio custom-control-inline" id="contentOpen">
                                     <input class="custom-control-input" type="radio" name="RbCap" id="RbOpen"
                                         value="Open" checked>
@@ -602,7 +616,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <div class="custom-control custom-radio custom-control-inline" id="contentClosed">
                                     <input class="custom-control-input" type="radio" name="RbCap" id="RbClosed"
                                         value="Closed">
@@ -621,9 +635,9 @@
                     </div>
 
                     <div class="col-xl-4">
-                        <h5 class="">Service</h5>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <h5 class="titleComponentParameter">Mode</h5>
+                        <div class="row justify-content-center">
+                            <div class="col-5">
                                 <div class="custom-control custom-radio custom-control-inline" id="contentnormal">
                                     <input class="custom-control-input" type="radio" name="RbServices" id="RbNormal"
                                         value="Normal" checked>
@@ -639,7 +653,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-5">
                                 <div class="custom-control custom-radio custom-control-inline" id="contentadvanced">
                                     <input class="custom-control-input" type="radio" name="RbServices" id="RbAdvanced"
                                         value="Advanced">
@@ -659,23 +673,23 @@
                     </div>
 
                     <div class="col-xl-4">
-                        <h5 class=" eng">Subtitle (Translation)</h5>
-                        <div class="row">
-                            <div class="col-md-4">
+                        <h5 class="titleComponentParameter eng">Translation</h5>
+                        <div class="row justify-content-center">
+                            <div class="col-4">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input class="custom-control-input" type="radio" name="RbLang" id="RbNone"
                                         value="None" checked>
                                     <label class="custom-control-label eng" for="RbNone">None</label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-4">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input class="custom-control-input" type="radio" name="RbLang" id="RbEng"
                                         value="En">
                                     <label class="custom-control-label eng" for="RbEng">English</label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-4">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input class="custom-control-input" type="radio" name="RbLang" id="RbFra"
                                         value="Fr">
@@ -686,8 +700,8 @@
                     </div>
                 </div>
 
-                <div class="sectionPrice">
-                    <h3 class="eng">Total Price</h3>
+                <div id="totalPrice">
+                    <h3 class="titleComponentParameter eng">Total Price</h3>
                     <div>
                         <div>
                             <div>
@@ -696,30 +710,33 @@
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" onclick="btnprice()" id="btnPrice">
-                        <span class="eng"> Get Price </span>
+                        <span class="eng">Get Price</span>
                     </button>
                 </div>
 
-                <p>
+                <div class="sectionPrice mContainer">
                     <small>
-                        <span class="eng">*Your first video is free under certain conditions</span>
+                        <span class="eng"><b style="color: #0099ff;">*</b>
+                            If your first video is less than 7 min, it will be free.
+                            If it is higher, the first 7 minutes are free and the rest will be charged.
+                        </span>
 
-                        <span class="mores" id="morePriceCondition">
+                        <!-- <span class="mores" id="morePriceCondition">
                             <span class="eng">If your first video is less than 7 min, it will be free.
                                 <br> If it is higher, the first 7 minutes are free and the rest will be charged.</span>
                         </span>
                         <button
                             onclick="showMoreLess('btnReadMorePriceCond', 'dotsPriceCondition', 'morePriceCondition')"
-                            id="btnReadMorePriceCond" style="display: inline;">Read more</button>
+                            id="btnReadMorePriceCond" style="display: inline;">Read more</button> -->
                     </small>
-                </p>
-                <div class="sectionPrice">
-                    <p>
+                </div>
+                <div id="contactPrice" class="mContainer">
+                    <small>
                         <span class="eng">If you want to place an order, send your video or the url to this
                             email:</span>
 
                         <a href="https://mail.google.com/">contacts.vidcs@gmail.com</a>
-                    </p>
+                    </small>
                 </div>
             </div>
         </div>
