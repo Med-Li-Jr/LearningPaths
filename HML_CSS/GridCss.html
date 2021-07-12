@@ -14,6 +14,7 @@
 
         .mContainer {
             width: 90%;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
@@ -27,7 +28,6 @@
 
         #mHearder .mContainer {
             display: flex;
-            height: auto;
         }
 
         #logo {
@@ -58,9 +58,9 @@
             border: solid;
         }
         
-        #waveHeader {
+        #waveHeaders {
             position: relative;
-            height: 170px;
+            height: 150px;
             background-color: white;
             background-image: url(./assets/images/wave4.svg);
             background-size: cover;
@@ -71,12 +71,11 @@
             z-index: -100;
         }
 
-        #waveHeader .mContainer {
+        #barMenu .mContainer {
             display: flex;
-            height: 100%;
             justify-content: center;
         }
-        #waveHeader .mContainer>* {
+        #barMenu .mContainer>* {
             align-self: flex-end;
             padding: 0.5% 2%;
             margin: 0;
@@ -106,7 +105,7 @@
 
         #howItWorks{
             background-color: #f8f9fa;
-            padding-top: 10px;
+            padding: 10px 0 30px 0;
         }
         /* #howItWorks .mContainer {
         } */
@@ -130,7 +129,6 @@
         }
 
         #allServices{
-            padding-top: 20px;
         }
         #allServices .mContainer {
             display: grid;
@@ -150,17 +148,19 @@
             grid-column: 1/-1;
             margin-top: 5px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 50px;
         }
 
         #captionDescOpen {
+            padding: 0 5px;
             /* margin: 1% 2%; */
             /* justify-self: center; */
             text-align: center;
         }
 
         #captionDescClose {
+            padding: 0 5px;
             /* margin: 1% 2%; */
             /* justify-self: center; */
             text-align: center;
@@ -168,12 +168,10 @@
 
         #backgroundServices {
             margin-top: 20px;
-            height: 350px;
             background-image: url(./assets/images/MultiLang.png);
         }
 
         #servicesbBackground {
-            height: 350px;
             display: flex;
             justify-content: center;
             align-content: center;
@@ -182,15 +180,14 @@
 
         #translationDesc {
             width: 500px;
-            height: 200px;
-            margin: 1% 2%;
+            margin: 50px;
             align-self: center;
             text-align: center;
         }
 
         #whyUseIt{
             padding-top: 10px;
-            margin-bottom: 5%;
+            margin-bottom: 50px;
         }
         #whyUseIt .mContainer {
             display: grid;
@@ -216,7 +213,6 @@
         }
 
         #whyTranslation {
-            justify-self: center;
             text-align: center;
         }
 
@@ -300,169 +296,179 @@
             </div>
         </div>
     </div>
-    <div id="waveHeader">
+    <div id="waveHeaders">
+    </div>
+    <div id="barMenu">
         <div class="mContainer">
             <div class="non_active active"><a id="btnHome">Home</a></div>
             <div class="non_active"><a id="btnPrice">Price</a></div>
             <div class="non_active"><a id="btnAlternatives">Alternatives</a></div>
         </div>
     </div>
-    <div id="textIdentification" class="mSection">
-        <div class="mContainer">
-            <div id="textDesciption">
-                <p> Hi there, my name is Victor, I'm a student. I created this site to get
-                    some
-                    money to help me with my studies by helping you turn your video into text. Everything that follows
-                    is
-                    explained in the video above.
-                </p>
 
-                <h3>
-                    Email: <a href="https://mail.google.com/" target="n">contacts.vidcs@gmail.com</a>
-                </h3>
-            </div>
-        </div>
-    </div>
-    <div id="howItWorks" class="mSection">
-        <div class="mContainer">
-            <h1 class="titleSection">
-                How it works
-            </h1>
-            <div id="howItWorksContent">
-                <div id="sendVid" class="mCard">
+    <div id="homePart">
 
-                    <div class="img_card">
-                        <img src="./assets/images/thirdMail.png" class="rounded-circle" height="100px" width="100px"
-                            alt="img">
-                    </div>
-                    <div class="text_card">
-                        <p class="eng">
-                            Send your video or the url by email and the parameters.
-                        </p>
-                    </div>
-    
-                </div>
-                <div id="receiveEmail" class="mCard">
-                    <div class="img_card">
-                        <img src="./assets/images/fifthMail.png" class="rounded-circle" height="100px" width="100px"
-                            alt="img">
-                    </div>
-                    <div class="text_card">
-                        <p class="eng">
-                            Receive your transcribed file by email.
-                        </p>
-                    </div>
-                </div>
-                <div id="payBills" class="mCard">
-                    <div class="img_card">
-                        <img src="./assets/images/money.png" class="rounded-circle" height="100px" width="100px" alt="img">
-                    </div>
-                    <div class="text_card">
-                        <p class="eng">
-                            Pay the amount.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-    <div id="allServices" class="mSection">
-        <div class="mContainer">
-            <h1 class="titleSection">Services</h1>
-            <div id="captionDesc" class="">
-                <div class="text_card">
-                    <h4 class="text-center">Caption <br> <small>(Starts at 1€ /min)</small></h4>
-                    <p class="eng content_services">
-                        <b>Captioning</b> is the process of converting the audio content
-                        of a video file into text, then displaying the text on that video, most time in the bottom.
-                        There are 2 types of captions: <b>open</b> and <b>closed</b> captions.
+        <div id="textIdentification" class="mSection">
+            <div class="mContainer">
+                <div id="textDesciption">
+                    <p> 
+                        Hi there, my name is Victor, I'm a student. I created this site to get some money for my studies by helping you turn your video into text. Everything that follows is explained in the video above.
                     </p>
-                </div>
-            </div>
-            <div id="servicesCaption">
-                <div id="captionDescOpen" class="mCard">
-                    <div class="text_card">
-                        <h4 class="text-center">Open Caption</h4>
-                        <p class="eng content_services">
-                            <b>Open</b> captions are permanently fixed to the video, meaning that you can’t switch them
-                            off/on.
-                            They are mostly used on social media, or when the video player does not have <b> [CC]</b>
-                            functionality.
-                        </p>
-                    </div>
-                </div>
-                <div id="captionDescClose" class="mCard">
-                    <div class="text_card">
-                        <h4 class="text-center">Closed Caption</h4>
-                        <p class="eng content_services">
-                            <b>Closed</b> captions are almost the same with Open captions, except they can be
-                            enabled by the user watching the video only when needed.
-                            You can mostly see them on Youtube, Vimeo, Netflix etc...
-                        </p>
-                    </div>
+    
+                    <h3>
+                        Email: <a href="https://mail.google.com/" target="n">contacts.vidcs@gmail.com</a>
+                    </h3>
                 </div>
             </div>
         </div>
-        <div id="backgroundServices">
-            <div id="servicesbBackground">
-
-                <div id="translationDesc" class="mCard">
-                    <div class="text_card">
-                        <h4 class="text-center">Translation/Subtitles
-                            <br> <small>(Starts at 2€ /min)</small>
-                        </h4>
-                        <p class="eng text-center content_services">
-                            As an option, you can translate your captions into another Language (English or French) to
-                            get more viewers.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="whyUseIt" class="mSection">
-        <div class="mContainer">
-            <h1 class="titleSection">Why Use Caption or Translation</h1>
-            <div id="whyCaption">
-                <div id="whyCaptionOpen" class="mCard">
-                    <div class="text_card">
-                        <h4>Open Caption</h4>
-                        <div class="eng content_why">
-                            <p>- Great for accessibility and comprehension especially deaf, hard of hearing, or hearing
-                                impaired people.
+        
+        <div id="howItWorks" class="mSection">
+            <div class="mContainer">
+                <h1 class="titleSection">
+                    How it works
+                </h1>
+                <div id="howItWorksContent">
+                    <div id="sendVid" class="mCard">
+    
+                        <div class="img_card">
+                            <img src="./assets/images/thirdMail.png" class="rounded-circle" height="100px" width="100px"
+                                alt="img">
+                        </div>
+                        <div class="text_card">
+                            <p class="eng">
+                                Send your video or the url by email and the parameters.
                             </p>
-                            <p>- Useful for people in a noisy environment, or stuck without speakers.</p>
-                            <p>- Grab and hold your audience’s attention.</p>
-                            <p>- And more...</p>
+                        </div>
+        
+                    </div>
+                    <div id="receiveEmail" class="mCard">
+                        <div class="img_card">
+                            <img src="./assets/images/fifthMail.png" class="rounded-circle" height="100px" width="100px"
+                                alt="img">
+                        </div>
+                        <div class="text_card">
+                            <p class="eng">
+                                Receive your transcribed file by email.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="payBills" class="mCard">
+                        <div class="img_card">
+                            <img src="./assets/images/money.png" class="rounded-circle" height="100px" width="100px" alt="img">
+                        </div>
+                        <div class="text_card">
+                            <p class="eng">
+                                Pay the amount.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div id="whyCaptionClose" class="mCard">
+                
+            </div>
+        </div>
+    
+        <div id="allServices" class="mSection">
+            <div class="mContainer">
+                <h1 class="titleSection">Services</h1>
+                <div id="captionDesc" class="">
                     <div class="text_card">
-                        <h4>Closed Caption</h4>
-                        <div class="eng content_why">
-                            <p>- Same as Open Caption</p>
-                            <p>- Can be turned on and off by the viewer.</p>
-                            <p>- Excellent ranking for your videos on Google</p>
-                            <p>- And more...</p>
+                        <h4 class="text-center">Caption <br> <small>(Starts at 1€ /min)</small></h4>
+                        <p class="eng content_services">
+                            <b>Captioning</b> is the process of converting the audio content
+                            of a video file into text, then displaying the text on that video, most time in the bottom.
+                            There are 2 types of captions: <b>open</b> and <b>closed</b> captions.
+                        </p>
+                    </div>
+                </div>
+                <div id="servicesCaption">
+                    <div id="captionDescOpen" class="mCard">
+                        <div class="text_card">
+                            <h4 class="text-center">Open Caption</h4>
+                            <p class="eng content_services">
+                                <b>Open</b> captions are permanently fixed to the video, meaning that you can’t switch them
+                                off/on.
+                                They are mostly used on social media, or when the video player does not have <b> [CC]</b>
+                                functionality.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="captionDescClose" class="mCard">
+                        <div class="text_card">
+                            <h4 class="text-center">Closed Caption</h4>
+                            <p class="eng content_services">
+                                <b>Closed</b> captions are almost the same with Open captions, except they can be
+                                enabled by the user watching the video only when needed.
+                                You can mostly see them on Youtube, Vimeo, Netflix etc...
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div id="whyTranslation" class="mCard">
-                    <div class="text_card">
-                        <h4 class="text-center">Translation/Subtitles</h4>
-                        <div class="eng content_why">
-                            <p>- Most useful when the viewer
-                                doesn’t speak the language used by the speakers in a video.</p>
-                            <p>- Improve Language Skills for the viewer</p>
-                            <p>- And more...</p>
+            </div>
+            <div id="backgroundServices">
+                <div id="servicesbBackground">
+    
+                    <div id="translationDesc" class="mCard">
+                        <div class="text_card">
+                            <h4 class="text-center">Translation/Subtitles
+                                <br> <small>(Starts at 2€ /min)</small>
+                            </h4>
+                            <p class="eng text-center content_services">
+                                As an option, you can translate your captions into another Language (English or French) to
+                                get more viewers.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    
+        <div id="whyUseIt" class="mSection">
+            <div class="mContainer">
+                <h1 class="titleSection">Why Use Caption or Translation</h1>
+                <div id="whyCaption">
+                    <div id="whyCaptionOpen" class="mCard">
+                        <div class="text_card">
+                            <h4>Open Caption</h4>
+                            <div class="eng content_why">
+                                <p>- Great for accessibility and comprehension especially deaf, hard of hearing, or hearing
+                                    impaired people.
+                                </p>
+                                <p>- Useful for people in a noisy environment, or stuck without speakers.</p>
+                                <p>- Grab and hold your audience’s attention.</p>
+                                <p>- And more...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="whyCaptionClose" class="mCard">
+                        <div class="text_card">
+                            <h4>Closed Caption</h4>
+                            <div class="eng content_why">
+                                <p>- Same as Open Caption</p>
+                                <p>- Can be turned on and off by the viewer.</p>
+                                <p>- Excellent ranking for your videos on Google</p>
+                                <p>- And more...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="whyTranslation" class="mCard">
+                        <div class="text_card">
+                            <h4 class="text-center">Translation/Subtitles</h4>
+                            <div class="eng content_why">
+                                <p>- Most useful when the viewer
+                                    doesn’t speak the language used by the speakers in a video.</p>
+                                <p>- Improve Language Skills for the viewer</p>
+                                <p>- And more...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
     </div>
+
+    <div id="pricePart"></div>
+    <div id="alternativePart"></div>
 </body>
 
 </html>
