@@ -268,10 +268,11 @@
         }
 
         #pricePart {
+            display: none;
             margin-top: 30px;
             margin-bottom: 20px;
             text-align: center;
-            background: url(./assets/images/2.png) ;
+            background: url(./assets/images/2.png);
             animation-delay: 0s;
             animation: animates 2s linear infinite;
         }
@@ -304,20 +305,46 @@
         .sectionPrice {
             margin-top: 5px;
         }
+
         .myBtn button {
-            background-color:  #0099ff;
+            background-color: #0099ff;
             color: white;
         }
-        .titleComponentParameter{
+
+        .titleComponentParameter {
             margin-top: 10px;
             color: #0099ff;
             font-size: 1.3em;
         }
-        #totalPrice{
+
+        #totalPrice {
             margin-top: 25px;
         }
-        #contactPrice{
+
+        #contactPrice {
             margin-top: 15px;
+        }
+        #alternativePart{
+            margin: 30px 0;
+        }
+        .explanationBlock{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 5px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .explanationLogo {
+            height: 300px;
+            align-self: center;
+        }
+        .explanationContent{
+            align-self: center;
+            padding: 15px 5px;
+            border: solid #0099ff;
+            background: #f8f9fa;
+            box-shadow: 7px 7px 5px #aaaaaa,
+                0 1px 7px 0 rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
@@ -742,7 +769,74 @@
         </div>
 
     </div>
-    <div id="alternativePart"></div>
+
+    <div id="alternativePart">
+
+        <!-- <svg id="smallcircle" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50" fill="#0099ff" fill-opacity="0.6" />
+            Sorry, your browser does not support inline SVG.
+        </svg> -->
+        <div class="mContainer">
+            <p class="text-center">
+                <span class="eng">If you want a "more professional experience", here are some sites, with more
+                    services.</span>
+            </p>
+        </div>
+        <div class="mContainer">
+            <div class="explanationBlock">
+                <div class="explanationLogo">
+                    <img src="./assets/images/transcribemeLogo.png" alt="Responsive image" width="90%" height="90%">
+                </div>
+                <div class="explanationContent">
+                    <h4> <a href="https://www.transcribeme.com/" target="blank">Transcribe Me </a></h4>
+                    <p class="eng">
+                        TranscribeMe is a web service provider that converts any kind of audio content into highly
+                        accurate text.
+                        They offer multiple services like
+                        <b>Data Annotation</b>,
+                        <b>Transcription</b>,
+                        <b>Speech Recognition</b>,
+                        <b>Translation</b> and more.
+                    </p>
+                </div>
+            </div>
+
+            <div class="explanationBlock" id="RevCom">
+                <div class="explanationLogo" id="imgRev1">
+                    <img src="./assets/images/Revlogo.png" alt="Responsive image" width="90%" height="90%">
+                </div>
+                <div class="explanationContent" id="contenuRev">
+                    <h4> <a href="https://www.rev.com/" target="blank">Rev</a></h4>
+                    <p class="eng">
+                        Rev is a transcription service and was ranked as the best transcription service in 2019.
+                        They provides services to companies such as PBS and Comcast.
+                        <b>transcription</b>,
+                        <b>captioning</b>,
+                        <b>translation of documents or websites</b> and more.
+                    </p>
+                </div>
+            </div>
+
+            <div class="explanationBlock">
+
+                <div class="explanationLogo">
+                    <img src="./assets/images/scribieLogo.png" alt="Responsive image" width="90%" height="90%">
+                </div>
+
+                <div class="explanationContent">
+                    <h4> <a href="https://www.Scribie.com/" target="blank">Scribie </a></h4>
+                    <p class="eng">
+                        Scribie is a freelance platform that offers general transcription work.
+                        As services, they offer:
+                        <b>Transcription</b> and more.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 
 </html>
