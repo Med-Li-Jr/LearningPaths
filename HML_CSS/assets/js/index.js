@@ -10,12 +10,12 @@ function showLanguagePart(index) {
             elt.style.display = "none";
         })
         sectionLangEn.forEach(function (elt) {
-            elt.style.display = "unset";
+            elt.style.display = "block";
         })
     }
     else{
         sectionLangFr.forEach(function (elt) {
-            elt.style.display = "unset";
+            elt.style.display = "block";
         })
         sectionLangEn.forEach(function (elt) {
             elt.style.display = "none";
