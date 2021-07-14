@@ -1,9 +1,33 @@
 let btnMenu = document.querySelectorAll(".btnMenu")
 let sectionMenu = document.querySelectorAll(".sectionMenu")
+let sectionLangEn = document.querySelectorAll(".eng")
+let sectionLangFr = document.querySelectorAll(".fra")
+let langNonActive = document.querySelectorAll(".langNonActive");
 
+function showLanguagePart(index) {
+   if(index===0){
+        sectionLangFr.forEach(function (elt) {
+            elt.style.display = "none";
+        })
+        sectionLangEn.forEach(function (elt) {
+            elt.style.display = "unset";
+        })
+    }
+    else{
+        sectionLangFr.forEach(function (elt) {
+            elt.style.display = "block";
+        })
+        sectionLangEn.forEach(function (elt) {
+            elt.style.display = "none";
+        })
+    }
+    langNonActive.forEach(function (elt) {
+        elt.classList.remove("langActive");
+    })
+    langNonActive[index].classList.add("langActive");
+}
 
-function showContentPart(index) {
-
+function showContentPart(index, indexFr) {
     btnMenu.forEach(function (elt) {
         elt.classList.remove("active");
     })
@@ -12,6 +36,7 @@ function showContentPart(index) {
     })
     sectionMenu[index].style.display = "unset";
     btnMenu[index].classList.add("active");
+    btnMenu[indexFr].classList.add("active");
 }
 
 function increaseValue(idItems) {

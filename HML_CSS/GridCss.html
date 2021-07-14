@@ -28,7 +28,8 @@
         }
 
         #mHearder .mContainer {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr;
         }
 
         #logo {
@@ -38,8 +39,10 @@
         #languageChoice {
             display: flex;
             align-items: center;
+            justify-self: center;
+            cursor: pointer;
+            gap: 20px;
         }
-
         #mBanner .mContainer {
             padding-top: 15px;
             display: grid;
@@ -47,16 +50,16 @@
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
         }
 
-        #textTitle {
+        .textTitle {
             flex: 1;
             color: white;
             align-self: center;
         }
 
         #videoTitle {
+            max-width: 100%;
             flex: 1.5;
             text-align: center;
-            border: solid;
         }
 
         #waveHeaders {
@@ -247,6 +250,16 @@
             color: #0099ff;
         }
 
+        .langNonActive{
+            font-size: 0.9em;
+        }
+        .langActive{
+            border-bottom: black solid;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 5px 0;
+        }
         .non_active {
             border-bottom: black solid;
             font-size: 1.18em;
@@ -262,11 +275,11 @@
         }
 
         #homePart {
-            display: none;
+            display: unset;
         }
 
         #pricePart {
-            display: unset;
+            display: none;
             margin-top: 50px;
             margin-bottom: 20px;
             text-align: center;
@@ -288,6 +301,7 @@
         #pricingBox {
             border: solid #0099ff;
             background: #f8f9fa;
+            padding-bottom: 10px;
             box-shadow: 7px 7px 5px #aaaaaa,
                 0 1px 7px 0 rgba(0, 0, 0, 0.15);
         }
@@ -367,26 +381,36 @@
             -moz-appearance: textfield;
             /* Firefox */
         }
-        
-#div_overOpen,#div_overClosed,
-#div_overAdvanced, #div_overNormal{
-    display: none;
-    position: absolute;
-    margin-top: 4px;
-    max-width: 500px;
-    font-size: 20px;
-    padding: 10px;
-    background: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 21px 0 rgba(0, 0, 0, 0.19);
-}
-#contentopen:hover + #div_overOpen,
-#contentclosed:hover + #div_overClosed,
-#contentadvanced:hover + #div_overAdvanced,
-#contentnormal:hover + #div_overNormal{
-    visibility: visible;
-    opacity: 1;
-    display: block;
-}
+
+        #div_overOpen,
+        #div_overClosed,
+        #div_overAdvanced,
+        #div_overNormal {
+            display: none;
+            position: absolute;
+            margin-top: 4px;
+            max-width: 500px;
+            font-size: 20px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 21px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #contentopen:hover+#div_overOpen,
+        #contentclosed:hover+#div_overClosed,
+        #contentadvanced:hover+#div_overAdvanced,
+        #contentnormal:hover+#div_overNormal {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+        }
+
+        .btnMenu {
+            cursor: pointer;
+        }
+        .fra{
+            display: none;
+        }
     </style>
 </head>
 
@@ -395,34 +419,42 @@
 
         <div id="mHearder" class="mSection">
             <div class="mContainer">
-                <div id="logo">
+                <!-- <div id="logo">
                     <img id="imgLogo" height="40px" width="150px" src="./assets/images/logoHeader.png"
                         alt="Logo Web Page">
-                </div>
+                </div> -->
                 <div id="languageChoice">
-                    <div id="langEN">
-                        <img id="imgEN" height="26px" src="./assets/images/UK-US-Flag.png" alt="EN Language">
+                    <div id="langEN" class="langNonActive langActive" onclick="showLanguagePart(0)">
+                        <img id="imgEN" height="26px" src="./assets/images/UK-US-Flag.png" alt="EN Language"> <b>EN</b>
                     </div>
-                    <div id="langFR">
-                        <img id="imgFR" height="30px" src="./assets/images/Fr_Flag.png" alt="FR Language">
+                    <div id="langFR" class="langNonActive" onclick="showLanguagePart(1)">
+                        <img id="imgFR" height="30px" src="./assets/images/Fr_Flag.png" alt="FR Language"> <b>FR</b>
                     </div>
                 </div>
             </div>
         </div>
         <div id="mBanner" class="mSection">
             <div class="mContainer">
-                <div id="textTitle">
+                <div class="textTitle eng">
                     <h1 class="main_title">Let’s add some captions to your video</h1>
                     <p class="">
                         With a rate starting at 1€, you can transcribe your videos.
                     </p>
                 </div>
+                <div class="textTitle fra">
+                    <h1 class="main_title">Ajoutons des captions à votre video.</h1>
+                    <p class="">
+                        Vous pouvez transcrire vos fichier videos à partir de 1€.
+                    </p>
+                </div>
                 <div id="videoTitle">
-                    <video class="embed-responsive-item eng" height="300" width="100%" id="videoLogo" controls
+                    <img id="videoLogo" height="400" width="100%" src="./assets/images/logoHeader.png"
+                        alt="Logo Web Page">
+                    <!-- <video class="embed-responsive-item eng" height="300" width="100%" id="videoLogo" controls
                         controlsList="nodownload">
                         <source src="https://github.com/VidCS/VIDCS/blob/master/videos/vidEN.mp4" type="video/mp4">
                         Your browser does not support HTML5 video.
-                    </video>
+                    </video> -->
                 </div>
             </div>
         </div>
@@ -431,10 +463,12 @@
     </div>
     <div id="barMenu">
         <div class="mContainer">
-            <div class="non_active active btnMenu" onclick="showContentPart(0)"><span id="btnHome">Home</span></div>
-            <div class="non_active btnMenu" onclick="showContentPart(1)"><span id="btnPrice">Price</span></div>
-            <div class="non_active btnMenu" onclick="showContentPart(2)"><span id="btnAlternatives">Alternatives</span>
-            </div>
+                <div class="non_active active btnMenu eng" onclick="showContentPart(0, 3)"><span class="btnHome">Home</span></div>
+                <div class="non_active btnMenu eng" onclick="showContentPart(1, 4)"><span class="btnPrice">Price</span></div>
+                <div class="non_active btnMenu eng" onclick="showContentPart(2, 5)"><span class="btnAlternatives">Alternatives</span></div>
+                <div class="non_active active btnMenu fra" onclick="showContentPart(0, 3)"><span class="btnHome">Acceuil</span></div>
+                <div class="non_active btnMenu fra" onclick="showContentPart(1, 4)"><span class="btnPrice">Tarifs</span></div>
+                <div class="non_active btnMenu fra" onclick="showContentPart(2, 5)"><span class="btnAlternatives">Alternatives</span></div>
         </div>
     </div>
     <div id="allSection">
@@ -442,12 +476,22 @@
 
             <div class="mSection">
                 <div class="mContainer">
-                    <div class="textIdentification">
+                    <div class="textIdentification eng">
                         <p>
                             Hi there, my name is Victor, I'm a student. I created this site to get some money for my
                             studies
-                            by helping you turn your video into text. Everything that follows is explained in the video
-                            above.
+                            by helping you turn your video into text.
+                        </p>
+
+                        <h3>
+                            Email: <a href="https://mail.google.com/" target="n">contacts.vidcs@gmail.com</a>
+                        </h3>
+                    </div>
+                    <div class="textIdentification fra">
+                        <p>
+                            Salut, mon nom est Victor, je suis un etudiant de master informatique.
+                            J'ai crée ce site pour gagner un peu d'argent pour mes etudes en
+                            vous aidant à ajouter des sous-titres à vos videos.
                         </p>
 
                         <h3>
@@ -459,8 +503,11 @@
 
             <div id="howItWorks" class="mSection">
                 <div class="mContainer">
-                    <h1 class="titleSection">
+                    <h1 class="titleSection eng">
                         How it works
+                    </h1>
+                    <h1 class="titleSection fra">
+                        Comment cela fonctionne
                     </h1>
                     <div id="howItWorksContent">
                         <div id="sendVid" class="mCard">
@@ -472,6 +519,9 @@
                             <div class="text_card">
                                 <p class="eng">
                                     Send your video or the url by email and the parameters.
+                                </p>
+                                <p class="fra">
+                                    Envoyez vos videos ou l'url par email et les differents parametres.
                                 </p>
                             </div>
 
@@ -485,6 +535,9 @@
                                 <p class="eng">
                                     Receive your transcribed file by email.
                                 </p>
+                                <p class="fra">
+                                    Recevez vos videos transcrit par email.
+                                </p>
                             </div>
                         </div>
                         <div id="payBills" class="mCard">
@@ -495,6 +548,9 @@
                             <div class="text_card">
                                 <p class="eng">
                                     Pay the amount.
+                                </p>
+                                <p class="fra">
+                                    Payez la facture.
                                 </p>
                             </div>
                         </div>
@@ -507,21 +563,29 @@
                 <div class="mContainer">
                     <h1 class="titleSection">Services</h1>
                     <div id="captionDesc" class="">
-                        <div class="text_card">
+                        <div class="text_card eng">
                             <h4 class="">Caption <br> <small>(Starts at 1€ /min)</small></h4>
-                            <p class="eng content_services">
+                            <p class="content_services">
                                 <b>Captioning</b> is the process of converting the audio content
                                 of a video file into text, then displaying the text on that video, most time in the
                                 bottom.
                                 There are 2 types of captions: <b>open</b> and <b>closed</b> captions.
                             </p>
                         </div>
+                        <div class="text_card fra">
+                            <h4 class="">Caption <br> <small>(à partir de 1€ /min)</small></h4>
+                            <p class="content_services">
+                                <b>Captioning</b> est le processus de conversion du contenu audio 
+                                d'un fichier vidéo en texte, puis en affichant le texte sur cette vidéo, la plupart du temps en bas.
+                                Il existe 2 types de caption: les caption <b> (open) ouverts </b> et <b> (closed) fermés </b>.
+                            </p>
+                        </div>
                     </div>
                     <div id="servicesCaption">
                         <div id="captionDescOpen" class="mCard">
-                            <div class="text_card">
+                            <div class="text_card eng">
                                 <h4 class="">Open Caption</h4>
-                                <p class="eng content_services">
+                                <p class="content_services">
                                     <b>Open</b> captions are permanently fixed to the video, meaning that you can’t
                                     switch
                                     them
@@ -531,14 +595,29 @@
                                     functionality.
                                 </p>
                             </div>
+                            <div class="text_card fra">
+                                <h4 class="">Open Caption</h4>
+                                <p class="content_services">
+                                    <b>Open (ouvert)</b> captions sont fixés sur la vidéo, ce qui signifie que vous ne pouvez pas les activer / désactiver.
+                                Ils sont principalement utilisés sur les réseaux sociaux ou lorsque le lecteur vidéo ne dispose pas de la fonctionnalité <b> [CC] </b>.
+                                </p>
+                            </div>
                         </div>
                         <div id="captionDescClose" class="mCard">
-                            <div class="text_card">
+                            <div class="text_card eng">
                                 <h4 class="">Closed Caption</h4>
-                                <p class="eng content_services">
+                                <p class="content_services">
                                     <b>Closed</b> captions are almost the same with Open captions, except they can be
                                     enabled by the user watching the video only when needed.
                                     You can mostly see them on Youtube, Vimeo, Netflix etc...
+                                </p>
+                            </div>
+                            <div class="text_card fra">
+                                <h4 class="">Closed Caption</h4>
+                                <p class="content_services">
+                                    <b>Closed (fermés) </b> captions  sont presque identiques aux caption ouverts, sauf qu'ils peuvent être
+                                activé par l'utilisateur qui regarde la vidéo, uniquement en cas de besoin.
+                                Vous pouvez surtout les voir sur Youtube, Vimeo, Netflix etc ...
                                 </p>
                             </div>
                         </div>
@@ -548,15 +627,23 @@
                     <div id="servicesbBackground">
 
                         <div id="translationDesc" class="mCard">
-                            <div class="text_card">
-                                <h4 class="">Translation/Subtitles
-                                    <br> <small>(Starts at 2€ /min)</small>
+                            <div class="text_card eng">
+                                <h4 class="">Translation
+                                    <br> <small>(2€ /min)</small>
                                 </h4>
-                                <p class="eng  content_services">
+                                <p class="content_services">
                                     As an option, you can translate your captions into another Language (English or
                                     French)
                                     to
                                     get more viewers.
+                                </p>
+                            </div>
+                            <div class="text_card fra">
+                                <h4 class="">Traduction
+                                    <br> <small>(2€ /min)</small>
+                                </h4>
+                                <p class="content_services">
+                                    Comme option, vous pouvez traduire vos captions dans une autre langue (Anglais ou Francais) pour avoir plus de spectateurs.
                                 </p>
                             </div>
                         </div>
@@ -566,12 +653,13 @@
 
             <div id="whyUseIt" class="mSection">
                 <div class="mContainer">
-                    <h1 class="titleSection">Why Use Caption or Translation</h1>
+                    <h1 class="titleSection eng">Why Use Caption or Translation</h1>
+                    <h1 class="titleSection fra">Pourquoi Utiliser des Captions</h1>
                     <div id="whyCaption">
                         <div id="whyCaptionOpen" class="mCard">
-                            <div class="text_card">
+                            <div class="text_card eng">
                                 <h4>Open Caption</h4>
-                                <div class="eng content_why">
+                                <div class="content_why">
                                     <p>- Great for accessibility and comprehension especially deaf, hard of hearing, or
                                         hearing
                                         impaired people.
@@ -581,26 +669,56 @@
                                     <p>- And more...</p>
                                 </div>
                             </div>
+                            <div class="text_card fra">
+                                <h4>Open Caption</h4>
+                                <div class="content_why">
+                                    <p>
+                                        -Idéal pour l'accessibilité et la compréhension, en particulier les personnes sourdes ou malentendantes.
+                                    </p>
+                                    <p>-Utile pour les personnes dans un environnement bruyant.</p>
+                                    <p>-Attire et maintient l'attention de votre public.</p>
+                                    <p>-Etc...</p>
+                                </div>
+                            </div>
                         </div>
                         <div id="whyCaptionClose" class="mCard">
-                            <div class="text_card">
+                            <div class="text_card eng">
                                 <h4>Closed Caption</h4>
-                                <div class="eng content_why">
+                                <div class="content_why">
                                     <p>- Same as Open Caption</p>
                                     <p>- Can be turned on and off by the viewer.</p>
                                     <p>- Excellent ranking for your videos on Google</p>
                                     <p>- And more...</p>
                                 </div>
                             </div>
+                            <div class="text_card fra">
+                                <h4>Closed Caption</h4>
+                                <div class="content_why">
+                                    <p>-Pareil come les Open Caption</p>
+                            <p>-Peut être activé et désactivé par le spectateur</p>
+                            <p>-Excellent classement pour vos vidéos sur Google</p>
+                            <p>-Etc...</p>
+                                </div>
+                            </div>
                         </div>
                         <div id="whyTranslation" class="mCard">
-                            <div class="text_card">
-                                <h4 class="">Translation/Subtitles</h4>
-                                <div class="eng content_why">
+                            <div class="text_card eng">
+                                <h4 class="">Translation</h4>
+                                <div class="content_why">
                                     <p>- Most useful when the viewer
                                         doesn’t speak the language used by the speakers in a video.</p>
                                     <p>- Improve Language Skills for the viewer</p>
                                     <p>- And more...</p>
+                                </div>
+                            </div>
+                            <div class="text_card fra">
+                                <h4 class="">Translation</h4>
+                                <div class="content_why">
+                                    <p>
+                                        -Plus utile lorsque le spectateur
+                                        ne parle pas la langue utilisée par les locuteurs dans une vidéo</p>
+                                    <p>-Améliore les compétences linguistiques du spectateur</p>
+                                    <p>-Etc...</p>
                                 </div>
                             </div>
                         </div>
@@ -616,6 +734,7 @@
                 <div id="pricingBox">
                     <div class="sectionPrice">
                         <h5 class="titleComponentParameter eng">Video duration</h5>
+                        <h5 class="titleComponentParameter fra">Durée de la video</h5>
                         <div id="durationSetup" class="row justify-content-center">
                             <div class="col-md-3">
 
@@ -634,6 +753,7 @@
                                     </div>
                                 </div>
                                 <p class="eng">Hours</p>
+                                <p class="fra">Heures</p>
                             </div>
 
                             <div class="col-md-3">
@@ -642,7 +762,7 @@
                                         <button class="btn btn-decrement" type="button"
                                             onclick="decreaseValue('Minutes')"><strong>-</strong></button>
                                     </div>
-                                    <input type="number" value="0" min="0" max="60" step="1" inputmode="decimal"
+                                    <input type="number" value="0" min="0" max="59" step="1" inputmode="decimal"
                                         id="inputMinutes" style="text-align: center" class="form-control"
                                         oninput="textInputChanges('Minutes')" />
                                     <div class="input-group-append myBtn">
@@ -661,7 +781,7 @@
                                         <button class="btn btn-decrement" type="button"
                                             onclick="decreaseValue('Secondes')"><strong>-</strong></button>
                                     </div>
-                                    <input type="number" value="0" min="0" max="60" step="1" inputmode="decimal"
+                                    <input type="number" value="0" min="0" max="59" step="1" inputmode="decimal"
                                         id="inputSecondes" style="text-align: center" class="form-control"
                                         oninput="textInputChanges('Secondes')" />
                                     <div class="input-group-append myBtn">
@@ -694,6 +814,9 @@
                                             them
                                             off/on.
                                         </p>
+                                        <p class="fra">
+                                            <b>Open (ouvert)</b> captions sont fixés sur la vidéo, ce qui signifie que vous ne pouvez pas les activer/désactiver.
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -708,6 +831,10 @@
                                             can
                                             be
                                             enabled by the user watching the video only when needed.
+                                        </p>
+                                        <p class="fra">
+                                            <b>Closed (fermés) </b> captions  sont presque identiques aux caption ouverts, sauf qu'ils peuvent être
+                                            activé par l'utilisateur qui regarde la vidéo, uniquement en cas de besoin.
                                         </p>
                                     </div>
 
@@ -732,6 +859,10 @@
                                             like
                                             <b>stutters</b>, <b>repetitions</b> and <b>false starting</b>
                                         </p>
+                                        <p class="fra">
+                                            En <b>Normal mode</b> il y aura tout ce qui est dit dans la vidéo, même des choses comme 
+                                            des <b>bégaiements</b>, des <b>répétitions</b> ou des <b>faux départs</b>.
+                                        </p>
                                     </div>
 
                                 </div>
@@ -740,6 +871,7 @@
                                         <input class="custom-control-input" type="radio" name="RbServices"
                                             id="RbAdvanced" value="Advanced">
                                         <label class="custom-control-label eng" for="RbAdvanced">Advanced</label>
+                                        <label class="custom-control-label fra" for="RbAdvanced">Advanced</label>
                                     </div>
                                     <div class="div_over" id="div_overAdvanced">
                                         <p class="eng">
@@ -749,6 +881,11 @@
                                             <b>false starting</b>.
                                             It will be well organized and it will include the names of speakers.
                                         </p>
+                                        <p class="fra">
+                                            En <b>mode Avancée</b> il n'y aura des choses comme 
+                                            des <b>bégaiements</b>, des <b>répétitions</b> ou des <b>faux départs</b>.
+                                            et ca sera bien organisé, les noms des intervenants seront inclus.  
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -756,12 +893,14 @@
 
                         <div class="col-xl-4">
                             <h5 class="titleComponentParameter eng">Translation</h5>
+                            <h5 class="titleComponentParameter fra">Traduction</h5>
                             <div class="row justify-content-center">
-                                <div class="col-4">
+                                <div class="col-3">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input class="custom-control-input" type="radio" name="RbLang" id="RbNone"
                                             value="None" checked>
-                                        <label class="custom-control-label eng" for="RbNone">None</label>
+                                        <label class="custom-control-label eng" for="RbNone">No</label>
+                                        <label class="custom-control-label fra" for="RbNone">Non</label>
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -769,13 +908,15 @@
                                         <input class="custom-control-input" type="radio" name="RbLang" id="RbEng"
                                             value="En">
                                         <label class="custom-control-label eng" for="RbEng">English</label>
+                                        <label class="custom-control-label fra" for="RbEng">Anglais</label>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-5">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input class="custom-control-input" type="radio" name="RbLang" id="RbFra"
                                             value="Fr">
                                         <label class="custom-control-label eng" for="RbFra">French</label>
+                                        <label class="custom-control-label fra" for="RbFra">Francais</label>
                                     </div>
                                 </div>
                             </div>
@@ -784,6 +925,7 @@
 
                     <div id="totalPrice">
                         <h3 class="titleComponentParameter eng">Total Price</h3>
+                        <h3 class="titleComponentParameter fra">Prix Total</h3>
                         <div>
                             <div>
                                 <div>
@@ -793,6 +935,7 @@
                         </div>
                         <button type="button" class="btn btn-primary" onclick="calculPriceTotal()" id="btnPrice">
                             <span class="eng">Get Price</span>
+                            <span class="fra">Voir Prix</span>
                         </button>
                     </div>
 
@@ -801,6 +944,10 @@
                             <span class="eng"><b style="color: #0099ff;">*</b>
                                 If your first video is less than 7 min, it will be free.
                                 If it is higher, the first 7 minutes are free and the rest will be charged.
+                            </span>
+                            <span class="fra"><b style="color: #0099ff;">*</b>
+                                Si votre première video est inferieure à 7 min, c'est gratuit.
+                                Sinon, les 7 premières minutes sont gratuites et le reste sera tarifés.
                             </span>
 
                             <!-- <span class="mores" id="morePriceCondition">
@@ -814,10 +961,10 @@
                     </div>
                     <div id="contactPrice" class="mContainer">
                         <small>
-                            <span class="eng">If you want to place an order, send your video or the url to this
-                                email:</span>
+                            <span class="eng">If you want to place an order, send your video or the url to this email:</span>
+                            <span class="fra">Si vous souhaitez passer une commande, envoyez votre vidéo ou l'url à cet email:</span>
 
-                            <a href="https://mail.google.com/">contacts.vidcs@gmail.com</a>
+                            <a href="#" >contacts.vidcs@gmail.com</a>
                         </small>
                     </div>
                 </div>
@@ -831,8 +978,8 @@
             </div>
             <div class="mContainer">
                 <p class="textIdentification">
-                    <span class="eng">If you want a more "professional experience", here are some sites, with more
-                        services.</span>
+                    <span class="eng">If you want a more "professional experience", here are some sites, with more services.</span>
+                    <span class="fra">Si vous souhaitez une "expérience plus professionnelle", voici quelques sites, avec plus de services.</span>
                 </p>
                 <div class="explanationBlock">
                     <div class="explanationLogo">
@@ -848,6 +995,14 @@
                             <b>Transcription</b>,
                             <b>Speech Recognition</b>,
                             <b>Translation</b> and more.
+                        </p>
+                        <p class="fra">
+                            TranscribeMe est un fournisseur de services Web qui convertit tout type de contenu audio en texte très précis.
+                            Ils offrent de multiples services comme
+                            <b> Annotation des données </b>,
+                            <b> Transcription </b>,
+                            <b> Reconnaissance vocale </b>,
+                            <b> Traduction </b> et plus encore.
                         </p>
                     </div>
                 </div>
@@ -865,6 +1020,13 @@
                             <b>captioning</b>,
                             <b>translation of documents or websites</b> and more.
                         </p>
+                        <p class="fra">
+                            Rev est un service de transcription et a été classé comme le meilleur service de transcription en 2019.
+                            Ils fournissent des services à des sociétés telles que PBS et Comcast.
+                            <b> transcription </b>,
+                            <b> sous-titrage </b>,
+                            <b> traduction de documents ou de sites Web </b> et plus encore.
+                        </p>
                     </div>
                 </div>
 
@@ -880,6 +1042,11 @@
                             Scribie is a freelance platform that offers general transcription work.
                             As services, they offer:
                             <b>Transcription</b> and more.
+                        </p>
+                        <p class="fra">
+                            Scribie est une plateforme indépendante qui propose un travail de transcription général.
+                            En tant que services, ils offrent:
+                            <b> Transcription </b> et plus encore.
                         </p>
                     </div>
                 </div>
