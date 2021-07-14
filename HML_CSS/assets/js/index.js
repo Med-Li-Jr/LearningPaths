@@ -15,7 +15,7 @@ function showLanguagePart(index) {
     }
     else{
         sectionLangFr.forEach(function (elt) {
-            elt.style.display = "block";
+            elt.style.display = "unset";
         })
         sectionLangEn.forEach(function (elt) {
             elt.style.display = "none";
